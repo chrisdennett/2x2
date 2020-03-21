@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
+import styled from '@emotion/styled'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 
@@ -97,48 +98,89 @@ const ProductForm = ({ product }) => {
   return (
     <>
       <h3>{price}</h3>
-      {options.map(({ id, name, values }, index) => (
-        <React.Fragment key={id}>
-          <label htmlFor={name}>{name} </label>
-          <select
-            name={name}
-            key={id}
-            onChange={event => handleOptionChange(index, event)}
-          >
-            {values.map(value => (
-              <option
-                value={value}
-                key={`${name}-${value}`}
-                disabled={checkDisabled(name, value)}
-              >
-                {value}
-              </option>
-            ))}
-          </select>
-          <br />
-        </React.Fragment>
-      ))}
-      <label htmlFor="quantity">Quantity </label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        min="1"
-        step="1"
-        onChange={handleQuantityChange}
-        value={quantity}
-      />
-      <br />
-      <button
+      <div>
+        {options.map(({ id, name, values }, index) => (
+          <Variation key={id}>
+            <FormLabel htmlFor={name}>{name} </FormLabel>
+            <FormSelect
+              name={name}
+              key={id}
+              onChange={event => handleOptionChange(index, event)}
+            >
+              {values.map(value => (
+                <option
+                  value={value}
+                  key={`${name}-${value}`}
+                  disabled={checkDisabled(name, value)}
+                >
+                  {value}
+                </option>
+              ))}
+            </FormSelect>
+          </Variation>
+        ))}
+      </div>
+
+      <Quantity>
+        <FormLabel htmlFor="quantity">Quantity </FormLabel>
+        <QuantityInput
+          type="number"
+          id="quantity"
+          name="quantity"
+          min="1"
+          step="1"
+          onChange={handleQuantityChange}
+          value={quantity}
+        />
+      </Quantity>
+      <SubmitButton
         type="submit"
         disabled={!available || adding}
         onClick={handleAddToCart}
       >
         Add to Basket
-      </button>
+      </SubmitButton>
       {!available && <p>This Product is out of Stock!</p>}
     </>
   )
 }
 
 export default ProductForm
+
+const FormLabel = styled.label`
+  min-width: 80px;
+  display: inline-block;
+`
+const FormSelect = styled.select`
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+`
+
+const Variation = styled.div`
+  margin-bottom: 10px;
+`
+const Quantity = styled.div`
+  margin-bottom: 10px;
+`
+const QuantityInput = styled.input`
+  padding: 10px;
+  border-radius: 5px;
+  width: 130px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+`
+
+const SubmitButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background: orange;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+`
