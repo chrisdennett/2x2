@@ -8,8 +8,7 @@ const ModelOfTheDay = ({ data }) => {
 
   return (
     <>
-      <SEO title="News" />
-      <Link to="/">Home</Link>
+      <SEO title="Model of the day" />
       <h1>Model of the day</h1>
 
       {articles.map(article => (

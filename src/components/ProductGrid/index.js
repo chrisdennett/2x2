@@ -25,7 +25,7 @@ const ProductGrid = () => {
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 910) {
-                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                      ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
@@ -42,7 +42,7 @@ const ProductGrid = () => {
 
   const getPrice = price =>
     Intl.NumberFormat(undefined, {
-      currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
+      currency: checkout.currencyCode ? checkout.currencyCode : 'GBP',
       minimumFractionDigits: 2,
       style: 'currency',
     }).format(parseFloat(price ? price : 0))

@@ -6,6 +6,7 @@ import ContextProvider from '~/provider/ContextProvider'
 
 import { GlobalStyle } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
+import Contact from '../components/Contact/contact'
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -30,9 +31,11 @@ const Layout = ({ children }) => {
         render={data => (
           <>
             <Navigation siteTitle={data.site.siteMetadata.title} />
+
             <Wrapper>
               {children}
               <footer>
+                <Contact />
                 <p>Copyright © {new Date().getFullYear()} Two by Two</p>
                 <p>All prices in GBP</p>
               </footer>

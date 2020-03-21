@@ -8,8 +8,7 @@ const Outfits = ({ data }) => {
 
   return (
     <>
-      <SEO title="News" />
-      <Link to="/">Home</Link>
+      <SEO title="2x2 Outfits of the Day" />
       <h1>2x2 Outfits of the Day</h1>
 
       {articles.map(article => (
@@ -23,14 +22,7 @@ export default Outfits
 
 export const query = graphql`
   {
-    allShopifyArticle(
-      filter: {
-        blog: {
-          id: { eq: "Shopify__Blog__Z2lkOi8vc2hvcGlmeS9CbG9nLzgwNjE1NTU5" }
-        }
-      }
-      sort: { order: DESC, fields: publishedAt }
-    ) {
+    allShopifyArticle(sort: { order: DESC, fields: publishedAt }) {
       edges {
         node {
           title
