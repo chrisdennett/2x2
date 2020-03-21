@@ -7,8 +7,8 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `2 x 2`,
-    description: `Kick off your next, ecommerce experience with this Gatsby starter. This starter ships with credentials to a shopify demo store so you can try it out immediately.`,
-    author: `@alexanderhorl`,
+    description: `Rachel's shop`,
+    author: `Chris`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

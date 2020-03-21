@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
@@ -33,17 +32,16 @@ const Layout = ({ children }) => {
             <Navigation siteTitle={data.site.siteMetadata.title} />
             <Wrapper>
               {children}
-              <footer>© {new Date().getFullYear()}, Two by Two</footer>
+              <footer>
+                <p>Copyright © {new Date().getFullYear()} Two by Two</p>
+                <p>All prices in GBP</p>
+              </footer>
             </Wrapper>
           </>
         )}
       />
     </ContextProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

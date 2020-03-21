@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
-import PropTypes from 'prop-types'
 
 import StoreContext from '~/context/StoreContext'
 
@@ -135,51 +134,11 @@ const ProductForm = ({ product }) => {
         disabled={!available || adding}
         onClick={handleAddToCart}
       >
-        Add to Cart
+        Add to Basket
       </button>
       {!available && <p>This Product is out of Stock!</p>}
     </>
   )
-}
-
-ProductForm.propTypes = {
-  product: PropTypes.shape({
-    descriptionHtml: PropTypes.string,
-    handle: PropTypes.string,
-    id: PropTypes.string,
-    shopifyId: PropTypes.string,
-    images: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        originalSrc: PropTypes.string,
-      })
-    ),
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        values: PropTypes.arrayOf(PropTypes.string),
-      })
-    ),
-    productType: PropTypes.string,
-    title: PropTypes.string,
-    variants: PropTypes.arrayOf(
-      PropTypes.shape({
-        availableForSale: PropTypes.bool,
-        id: PropTypes.string,
-        price: PropTypes.string,
-        title: PropTypes.string,
-        shopifyId: PropTypes.string,
-        selectedOptions: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string,
-            value: PropTypes.string,
-          })
-        ),
-      })
-    ),
-  }),
-  addVariantToCart: PropTypes.func,
 }
 
 export default ProductForm

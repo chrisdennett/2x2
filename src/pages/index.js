@@ -6,11 +6,13 @@ import ProductGrid from '~/components/ProductGrid'
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
+    <SEO title="Home" keywords={[`fashion`, `clothes`, `shop`]} />
+    <h1>Hi Rachel</h1>
+    <p>
+      This is just a test to see if lising products and the basket checkout all
+      work.
+    </p>
     <ProductGrid />
-    <Link to="/page-2/">Go to page 2</Link>
   </>
 )
 
